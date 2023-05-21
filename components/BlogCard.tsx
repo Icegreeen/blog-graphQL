@@ -44,15 +44,14 @@ export default function BlogPost({title, author, coverPhoto, datePublished, slug
 const Card = styled.div`
   cursor: pointer;
   width: calc(99.33% - 20px);
-  margin: 20px;
-  border-radius: 1.5rem;
+  margin: 10px;
+
   overflow: hidden;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+
   transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 768px) {
@@ -63,23 +62,29 @@ const Card = styled.div`
 
 const ImgContainer = styled.div`
   position: relative;
-  height: 20vh;
+  height: 18vh;
   overflow: hidden;
 
   img {
     width: 100%;
     height: 100%;
+    border-radius: 15px;
     object-fit: cover;
     transition: all 0.2s ease-in-out;
   }
 
   &:hover img {
-    transform: scale(1.1);
+    transform: scale(1);
+    border-radius: 15px;
   }
 `;
 
 const Text = styled.div`
-  padding: 1rem;
+  padding: 0;
+
+  h2 {
+    font-size: 1.3rem;
+  }
 `;
 
 const Details = styled.div`
@@ -94,24 +99,24 @@ const Author = styled.div`
   align-items: center;
 
   img {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     margin-right: 0.5rem;
   }
 
   h3 {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 500;
     margin: 0;
   }
 `;
 
 const Date = styled.div`
   h3 {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 400;
-    margin: 0;
+    margin: 5px;
     color: #6b7280;
   }
 `;

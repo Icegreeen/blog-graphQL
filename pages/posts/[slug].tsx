@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import {gql, GraphQLClient, } from 'graphql-request';
 import BlogCard from '@/components/BlogCard';
 
+import github from '../../assets/github.png'
+import Footer from '@/components/Footer';
+
 interface Post {
   id: string;
   title: string;
@@ -29,7 +32,6 @@ interface Params {
 
 
 const graphqlCmsUrl = process.env.GRAPHQL_CMS_URL || ''; // Valor padrão vazio caso a variável de ambiente não esteja definida
-
 const graphqlcms = new GraphQLClient(graphqlCmsUrl);
 
 
@@ -109,7 +111,8 @@ export async function getStaticProps({params = {slug: ''}}: {params: Params}){
 
 export default function BlogPost({post, posts}: { post: Post, posts: Post[] }){
     return(
-        <>
+        <Container>
+            <Wrapper>
             <Blog>
                 <img src={post.coverPhoto.url} alt="Imagem" />
 
@@ -123,20 +126,22 @@ export default function BlogPost({post, posts}: { post: Post, posts: Post[] }){
 
                 <h2>{post.title}</h2>
 
+                <hr />
+
                 <div>
                     <Content dangerouslySetInnerHTML={{ __html: post.content.html}}></Content>
                 </div>
 
                 <Social>
-                  <h3>Gostou do nosso conteúdo ? Siga-nos nas redes sociais</h3>
+                  <h3>Gostou do conteúdo ? Siga-me nas redes sociais</h3>
                     <LinksContainer>
-                      <Link href="https://www.instagram.com/">
-                        <Icon src="/instagramMN.png" alt="Instagram" />
+                      <Link href="https://www.github.com/">
+                        <Icon src="/github.png" alt="github" width={100}  />
+                      </Link>
+                      <Link href="https://www.linkedin.com/flavio-aquila">
+                        <Icon src="/linkedin.png" alt="Linkedin" width={100}  />
                       </Link>
                       {/* 
-                        <Link href="">
-                        <Icon src="/presentes.png" alt="Facebook" />
-                      </Link>
                       <Link href="https://www.twitter.com/">
                         <Icon src="" alt="Twitter" />
                       </Link>
@@ -164,10 +169,30 @@ export default function BlogPost({post, posts}: { post: Post, posts: Post[] }){
                 />
               ))}
             </CardFooter>
+
+            <Footer />
+            </Wrapper>
            
-        </>
+        </Container>
     );
 }
+
+const Container = styled.div`
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: hsla(0, 0%, 100%, .9);
+`;
 
 const Blog = styled.div`
   display: flex;
@@ -187,10 +212,13 @@ const Blog = styled.div`
 
   h2 {
     font-size: 4rem;
+    color: var(--h1);
   }
 
   div {
     white-space: pre-wrap;
+
+    color: var(--p);
   }
 `;
 
@@ -249,7 +277,7 @@ const LinksContainer = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  max-width: 400px;
+  max-width: 150px;
 `;
 
 const Link = styled.a`
@@ -258,19 +286,16 @@ const Link = styled.a`
   justify-content: center;
   width: 80px;
   height: 80px;
-  background-color: #f0f0f0;
-  border-radius: 50%;
   transition: all 0.2s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
 `;
 
 const Icon = styled.img`
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
 `;
 
 const Dividor = styled.div`

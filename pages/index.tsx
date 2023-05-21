@@ -2,6 +2,8 @@
 import styled from "styled-components";
 import BlogCard from "@/components/BlogCard";
 import { GraphQLClient, gql } from "graphql-request"
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 interface Post {
   id: string;
@@ -63,50 +65,181 @@ export async function getStaticProps(){
 export default function Home({posts} : {posts: Post[]}) {
 
   return (
-    <>
-      <Title>
-        <h1>
-          RoostSpace
-        </h1>
+    <Container>
+      <Wrapper>
+        <Header />
+          <Title>
+            <TitleContent>
+                <h1>
+                  Software developer, gamer and content creator.
+                </h1>
 
-        <p>Conheça a nossa forma de trabalho</p>
-      </Title>
+                <p>Welcome to my blog! My name is Ilda Neta, mobile software engineer. My minimalist lifestyle inspires me to create apps with a focus on user interface and usability. In this blog, I share my ideas, thoughts and experiences about technology, design, participation in technology talks and events.</p>
+           
+                <Social>
+                    <LinksContainer>
+                      <Link href="https://www.github.com/">
+                        <Icon src="/github.png" alt="github" width={40}  />
+                      </Link>
+                      <Link href="https://www.linkedin.com/flavio-aquila">
+                        <Icon src="/linkedin.png" alt="Linkedin" width={40}  />
+                      </Link>
+                    </LinksContainer>
+                </Social>
+           
+            </TitleContent>
 
-      <Container>
-        {posts.map((post) => (
-          <BlogCard
-            title={post.title}
-            author={post.author}
-            coverPhoto={post.coverPhoto}
-            key={post.id}
-            datePublished={post.datePublished}
-            slug={post.slug}
-          />
-        ))}
-      </Container>
-    </>
+            <Photo>
+                <img src="https://avatars.githubusercontent.com/u/56550632?v=4" alt="" width="315" />
+            </Photo>
+            
+          </Title>
+
+          <Dividor/>
+
+          <Cards>
+            {posts.map((post) => (
+              <BlogCard
+                title={post.title}
+                author={post.author}
+                coverPhoto={post.coverPhoto}
+                key={post.id}
+                datePublished={post.datePublished}
+                slug={post.slug}
+              />
+            ))}
+          </Cards>
+
+          <Footer />
+      </Wrapper>
+    </Container>
   )
 }
 
+const Dividor = styled.div`
+  width: 90%;
+  border-top: 1px solid #ccc;
+`;
 
 const Container = styled.div`
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: hsla(0, 0%, 100%, .9);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const Cards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: .1rem;
+  margin: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 15px;
   }
-  
+
 `;
 
 const Title = styled.div`
-  color: #8B8EE8;
-  display: flex;
+  margin: 8rem;
   flex-direction: column;
-  justify-content: center;
+  display: flex;
   align-items: center;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
+
+const TitleContent = styled.div`
+  width: 65%;
+  margin-top: 4rem;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+`;
+
+const Photo = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+
+  img {
+    border-radius: 50%;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+    margin-bottom: 0;
+  }
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Social = styled.div`
+display: flex;
+align-items: center;
+margin-top: 1rem;
+`
+const LinksContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 150px;
+`;
+
+const Link = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+const Icon = styled.img`
+ 
+`;
+
+
+
