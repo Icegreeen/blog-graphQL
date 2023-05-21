@@ -37,14 +37,12 @@ const QUERY = gql`
       content {
         html
       }
-
       author {
         name,
         avatar {
           url
         }
       }
-
       coverPhoto {
           url
       }
@@ -74,7 +72,7 @@ export default function Home({posts} : {posts: Post[]}) {
                   Software developer, gamer and content creator.
                 </h1>
 
-                <p>Welcome to my blog! My name is Ilda Neta, mobile software engineer. My minimalist lifestyle inspires me to create apps with a focus on user interface and usability. In this blog, I share my ideas, thoughts and experiences about technology, design, participation in technology talks and events.</p>
+                <p>Welcome to my blog! My name is Flávio Áquila, software developer. My minimalist lifestyle inspires me to create apps with a focus on user interface and usability. In this blog, I share my ideas, thoughts and experiences about technology.</p>
            
                 <Social>
                     <LinksContainer>
@@ -166,6 +164,12 @@ const Title = styled.div`
     justify-content: space-between;
     align-items: flex-start;
   }
+
+  @media (max-width: 568px) {
+    margin-top: 3rem;
+    width: 120%;
+    margin-bottom: 2rem;
+  }
 `;
 
 const TitleContent = styled.div`
@@ -179,6 +183,8 @@ const TitleContent = styled.div`
     justify-content: space-between;
     align-items: flex-start;
   }
+
+  
 `;
 
 const Photo = styled.div`
@@ -190,32 +196,29 @@ const Photo = styled.div`
     border-radius: 50%;
   }
 
+  @media (max-width: 768px) {
+
+    img {
+      max-width: 90%;
+    }
+  }
+
   @media (min-width: 768px) {
     justify-content: flex-end;
     margin-bottom: 0;
   }
 `;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const Social = styled.div`
-display: flex;
-align-items: center;
-margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+
+    @media (max-width: 568px) {
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
 `
 const LinksContainer = styled.div`
   display: flex;
@@ -235,6 +238,7 @@ const Link = styled.a`
   &:hover {
     transform: translateY(-5px);
   }
+  
 `;
 
 const Icon = styled.img`
