@@ -21,7 +21,7 @@ Disclaimer: This project fetches data from my personal [GraphCMS](https://graphc
 
 #### Clone repository
 ```bash
-git clone https://github.com/LauraBeatris/laurabeatris.com.git
+git clone https://github.com/Icegreeen/my-blog.git
 ```
 
 #### Define environment variables
@@ -53,7 +53,7 @@ Feel free to **file a new issue** with a respective title and description. If yo
 
 # :tada: Contributing
 
-Check out the [contributing](https://github.com/LauraBeatris/laurabeatris.com/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing
+Check out the [contributing](https://github.com/Icegreeen/my-blog/blob/main/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing
 
 
 
