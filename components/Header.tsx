@@ -8,7 +8,7 @@ interface HamburgerIconProps {
 const HeaderContainer = styled.header`
   background-color: hsla(0, 0%, 100%, 0.9);
   width: 60vw;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

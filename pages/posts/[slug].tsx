@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {gql, GraphQLClient, } from 'graphql-request';
 import BlogCard from '@/components/BlogCard';
-
-import github from '../../assets/github.png'
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 interface Post {
   id: string;
@@ -25,15 +24,12 @@ interface Post {
     url: string;
   };
 }
-
 interface Params {
     slug: string;
 }
 
-
 const graphqlCmsUrl = process.env.GRAPHQL_CMS_URL || ''; // Valor padrão vazio caso a variável de ambiente não esteja definida
 const graphqlcms = new GraphQLClient(graphqlCmsUrl);
-
 
 const QUERY = gql`
   query Post($slug: String!) {
@@ -98,7 +94,6 @@ export async function getStaticProps({params = {slug: ''}}: {params: Params}){
 
     let { post, posts }: { post: Post, posts: Post[]} = await graphqlcms.request(QUERY, { slug });
 
-
     return {
         props: {
             post,
@@ -112,25 +107,20 @@ export async function getStaticProps({params = {slug: ''}}: {params: Params}){
 export default function BlogPost({post, posts}: { post: Post, posts: Post[] }){
     return(
         <Container>
+          <Header />
             <Wrapper>
             <Blog>
-                <img src={post.coverPhoto.url} alt="Imagem" />
+               <ImgPost>
+                  <img src={post.coverPhoto.url} alt="Imagem" />
+               </ImgPost>
 
-                <Title>
-                    <img src={post.author.avatar.url} alt="Avatar" />
-                    <AuthText>
-                        <h6>By {post.author.name}</h6>
-                        <h6>{post.datePublished}</h6>
-                    </AuthText>
-                </Title>
+               <Title><h2>{post.title}</h2></Title>
 
-                <h2>{post.title}</h2>
+               <Dividor/>
 
-                <hr />
-
-                <div>
+                <WrapperContent>
                     <Content dangerouslySetInnerHTML={{ __html: post.content.html}}></Content>
-                </div>
+                </WrapperContent>
 
                 <Social>
                   <h3>Gostou do conteúdo ? Siga-me nas redes sociais</h3>
@@ -148,14 +138,9 @@ export default function BlogPost({post, posts}: { post: Post, posts: Post[] }){
                       */}
                     </LinksContainer>
                 </Social>
+                
+                <Dividor/>
             </Blog>
-
-            <Dividor>
-              <h3>
-                Leia também
-              </h3>
-              <hr />
-            </Dividor>
 
             <CardFooter>
               {posts.map((post) => (
@@ -171,7 +156,7 @@ export default function BlogPost({post, posts}: { post: Post, posts: Post[] }){
             </CardFooter>
 
             <Footer />
-            </Wrapper>
+          </Wrapper>
            
         </Container>
     );
@@ -186,12 +171,16 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 75%;
+  width: 85%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: hsla(0, 0%, 100%, .9);
+
+  @media screen and (max-width: 568px) {
+    width: 95%;
+   }
 `;
 
 const Blog = styled.div`
@@ -200,14 +189,15 @@ const Blog = styled.div`
   align-items: center;
   flex-direction: column;
 
-  margin: 4rem;
+  margin: 8rem;
+  margin-bottom: 1.2rem;
 
   img {
-    border-radius: 40px;
+    border-radius: 20px;
   }
 
   p {
-    font-size: 2rem; 
+    font-size: 1.3rem; 
   }
 
   h2 {
@@ -220,20 +210,67 @@ const Blog = styled.div`
 
     color: var(--p);
   }
+
+  @media screen and (max-width: 768px) {
+    margin: 7rem;
+
+    margin-bottom: 1.2rem;
+  }
+`;
+
+const ImgPost = styled.div`
+  img {
+    width: 100%; 
+    height: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    img {
+      width: 365px; 
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 368px) {
+    img {
+      width: 320px; 
+      height: auto;
+    }
+  }
+  
 `;
 
 const Title = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
 
-  img {
-    max-width: 100px;
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media screen and (max-width: 368px) {
+    width: 86%;
+    h2 {
+      font-size: 1.8rem;
+    }
   }
 `;
 
-const AuthText = styled.div`
-  margin: 20px;
-  font-size: 2rem;
+const WrapperContent = styled.div`
+  width: 100%;
+
+
+  @media screen and (max-width: 768px) {
+    width: 85vw;
+  }
+
+  @media screen and (max-width: 368px) {
+    width: 80vw;
+  }
 `;
 
 const Content = styled.div`
@@ -242,17 +279,40 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
 
+    img {
+      width: 100%; 
+      height: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      img {
+        width: 365px; 
+        height: auto;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      img {
+        width: 300px; 
+        height: auto;
+      }
+    }
+    
+
+    margin-bottom: -8rem;
+
+    font-size: 10px;
     white-space: pre-wrap;
 `;
 
 const CardFooter = styled.div`
 display: flex;
 flex-wrap: wrap;
-justify-content: flex-start;
+justify-content: center;
 
 & > * {
   flex-basis: 21.7%;
-  margin-bottom: 1rem;
+
 }
 
 @media screen and (max-width: 768px) {
@@ -263,15 +323,19 @@ justify-content: flex-start;
 `;
 
 const Social = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-h3 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
+  h3 {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 368px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
 `
 const LinksContainer = styled.div`
   display: flex;
@@ -299,9 +363,7 @@ const Icon = styled.img`
 `;
 
 const Dividor = styled.div`
-  margin: 2.2rem;
-  margin-bottom: -0.1rem;
-  h3 {
-    font-size: 2rem;
-  }
+  margin: 1.2rem;
+  width: 100%;
+  border-top: 1px solid #ccc;
 `;

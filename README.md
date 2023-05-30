@@ -5,11 +5,7 @@
 > Project status: Completed :heavy_check_mark:
 
 ![bg](https://github.com/Icegreeen/Newsletter/assets/56550632/d00b2b02-cc90-490d-9bae-4b8df5f78d7f)
-
-<p align="left">
-   <img src="./.github/docs/images/logo.png" />
-</p>
-                                            
+                                  
 # :pushpin: Table of Contents
 
 * [Running Locally](#construction_worker-running-locally)
@@ -37,7 +33,7 @@ yarn
 yarn dev
 ```
 
-Define the environment variables by creating a .env.local file similar to [.env.local.example](https://github.com/LauraBeatris/laurabeatris.com/blob/master/.env.local.example)
+Define the environment variables by creating a .env.local file similar to [.env.local.example](https://github.com/Icegreeen/my-blog.git.env.local.example)
 
 # :postbox: Faq
 
