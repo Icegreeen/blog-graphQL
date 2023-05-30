@@ -4,7 +4,9 @@
 
 > Project status: Completed :heavy_check_mark:
 
-![bg](https://github.com/Icegreeen/Newsletter/assets/56550632/d00b2b02-cc90-490d-9bae-4b8df5f78d7f)
+![Captura de tela de 2023-05-30 04-35-14](https://github.com/Icegreeen/my-blog/assets/56550632/03867365-ed3f-4870-b407-e8f1e7b62123)
+![Captura de tela de 2023-05-30 04-38-25](https://github.com/Icegreeen/my-blog/assets/56550632/e4ff2f0d-70c6-436a-b10e-e84e771c783b)
+![Captura de tela de 2023-05-30 04-52-09](https://github.com/Icegreeen/my-blog/assets/56550632/da74fe9c-819a-4304-85b9-c707e67894ca)
                                   
 # :pushpin: Table of Contents
 

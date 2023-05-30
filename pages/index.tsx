@@ -72,7 +72,7 @@ export default function Home({posts} : {posts: Post[]}) {
                   Software developer, gamer and content creator.
                 </h1>
 
-                <p>Welcome to my blog! My name is Flávio Áquila, software developer. My minimalist lifestyle inspires me to create apps with a focus on user interface and usability. In this blog, I share my ideas, thoughts and experiences about technology.</p>
+                <p>Welcome to my blog! My name is Flávio Áquila, software developer. My lifestyle inspires me to create apps with a focus on user interface and usability. In this, I share my ideas, thoughts and experiences about technology.</p>
            
                 <Social>
                     <LinksContainer>
@@ -136,6 +136,9 @@ const Wrapper = styled.div`
   background: hsla(0, 0%, 100%, .9);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
+  @media (min-width: 1068px) {
+    width: 85%;
+  }
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -158,6 +161,11 @@ const Title = styled.div`
   flex-direction: column;
   display: flex;
   align-items: center;
+
+  @media (min-width: 1068px) {
+    width: 75%;
+
+  }
 
   @media (min-width: 768px) {
     flex-direction: row;
