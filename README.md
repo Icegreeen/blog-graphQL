@@ -4,9 +4,9 @@
 
 > Project status: Completed :heavy_check_mark:
 
-![Captura de tela de 2023-05-30 04-35-14](https://github.com/Icegreeen/my-blog/assets/56550632/03867365-ed3f-4870-b407-e8f1e7b62123)
-![Captura de tela de 2023-05-30 04-38-25](https://github.com/Icegreeen/my-blog/assets/56550632/e4ff2f0d-70c6-436a-b10e-e84e771c783b)
-![Captura de tela de 2023-05-30 04-52-09](https://github.com/Icegreeen/my-blog/assets/56550632/da74fe9c-819a-4304-85b9-c707e67894ca)
+![Captura de tela de 2023-05-30 04-35-14](https://github.com/Icegreeen/my-blog/assets/56550632/3081b31d-c84f-4073-a1b2-4c5693dd4cd6)
+![Captura de tela de 2023-05-30 04-38-25](https://github.com/Icegreeen/my-blog/assets/56550632/40011cd8-320f-4c2d-86c0-2e99dc522c41)
+![Captura de tela de 2023-05-30 04-52-09](https://github.com/Icegreeen/my-blog/assets/56550632/7a8e7769-1af6-4656-8410-c895d5d3860e)
                                   
 # :pushpin: Table of Contents
 
